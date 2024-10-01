@@ -1,10 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import {GET} from "../api/repository.json"
+
+let respose: any = await GET(Astro)
+const data = await JSON.stringify(respose.message)
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
 		<h1>Github Random Repository</h1>
+	
+		<p>
+			{{data}}
+		</p>
 	</main>
 </Layout>
